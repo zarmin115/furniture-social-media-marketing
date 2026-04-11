@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Phoenix Furniture</title>
+
+<!-- SEO -->
+<meta name="description" content="Contact Phoenix Furniture for premium revolving chairs, ergonomic office chairs and modern furniture solutions. This website is created for Digital & Social Media Marketing project.">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Cinzel:wght@600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Montserrat, sans-serif;
+  background:#f6f7f9;
+  color:#111;
+}
+
+/* HEADER SAME AS INDEX */
+header{
+  background:#000;
+  color:#fff;
+  padding:35px 20px;
+  text-align:center;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 8px 18px rgba(0,0,0,0.25);
+}
+
+.brand{
+  font-family:'Cinzel', serif;
+  font-size:56px;
+  letter-spacing:8px;
+}
+
+nav{
+  margin-top:18px;
+}
+
+nav a{
+  color:#fff;
+  margin:0 18px;
+  text-decoration:none;
+  font-size:15px;
+  opacity:0.85;
+  transition:0.3s;
+}
+
+nav a:hover{
+  opacity:1;
+  border-bottom:2px solid #fff;
+  padding-bottom:4px;
+}
+
+/* HERO */
+.hero{
+  background:#fff;
+  padding:75px 10%;
+  text-align:center;
+  border-bottom:1px solid #eee;
+}
+
+.hero h1{
+  font-size:42px;
+  font-weight:700;
+  letter-spacing:1px;
+}
+
+.hero p{
+  margin-top:14px;
+  font-size:15px;
+  color:#555;
+  max-width:820px;
+  margin-left:auto;
+  margin-right:auto;
+  line-height:1.9;
+}
+
+/* MAIN SECTION */
+.contact-section{
+  padding:75px 10%;
+}
+
+.contact-box{
+  max-width:1150px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:35px;
+}
+
+/* LEFT INFO */
+.contact-info{
+  background:#fff;
+  border-radius:18px;
+  padding:40px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.08);
+  border:1px solid #eee;
+}
+
+.contact-info h2{
+  font-size:24px;
+  font-weight:700;
+  margin-bottom:15px;
+}
+
+.contact-info p{
+  font-size:14px;
+  color:#444;
+  line-height:1.9;
+  margin-bottom:22px;
+}
+
+.info-item{
+  margin-top:16px;
+  font-size:14px;
+  color:#222;
+  line-height:1.8;
+  padding:12px 14px;
+  border-radius:12px;
+  background:#f7f7f7;
+  border-left:4px solid #000;
+}
+
+.info-item span{
+  font-weight:700;
+  color:#000;
+}
+
+/* FORM */
+.contact-form{
+  background:#fff;
+  border-radius:18px;
+  padding:40px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.08);
+  border:1px solid #eee;
+}
+
+.contact-form h2{
+  font-size:24px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.contact-form p{
+  font-size:14px;
+  color:#444;
+  margin-bottom:22px;
+  line-height:1.9;
+}
+
+input, textarea{
+  width:100%;
+  padding:14px;
+  margin-bottom:14px;
+  border-radius:12px;
+  border:1px solid #ddd;
+  outline:none;
+  font-family:Montserrat, sans-serif;
+  font-size:14px;
+  transition:0.3s;
+  background:#fafafa;
+}
+
+input:focus, textarea:focus{
+  border:1px solid #000;
+  background:#fff;
+  box-shadow:0 0 0 4px rgba(0,0,0,0.08);
+}
+
+button{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:12px;
+  background:#000;
+  color:#fff;
+  font-size:15px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  background:#222;
+}
+
+/* FOOTER SAME AS INDEX */
+footer{
+  background:#000;
+  color:#fff;
+  padding:60px 10% 30px;
+  margin-top:70px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:40px;
+}
+
+footer h4{
+  margin-bottom:14px;
+}
+
+footer a{
+  display:block;
+  color:#ccc;
+  text-decoration:none;
+  margin-bottom:8px;
+  font-size:14px;
+}
+
+footer a:hover{
+  color:#fff;
+}
+
+.copy{
+  text-align:center;
+  margin-top:35px;
+  font-size:13px;
+  color:#aaa;
+  line-height:1.6;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+  .brand{
+    font-size:34px;
+    letter-spacing:4px;
+  }
+
+  nav a{
+    margin:0 10px;
+    font-size:14px;
+  }
+
+  .hero h1{
+    font-size:30px;
+  }
+
+  .contact-box{
+    grid-template-columns:1fr;
+  }
+
+  .contact-section{
+    padding:55px 7%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">PHOENIX FURNITURE</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="aboutus.html">About</a>
+    <a href="blog1.html">Blog</a>
+    <a href="mobilemarketing.html">Mobile Marketing</a>
+    <a href="contactus.html">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Contact Phoenix Furniture</h1>
+  <p>
+    Have questions about premium revolving chairs, office seating solutions, or bulk orders?
+    Get in touch with Phoenix Furniture. This contact page is created as part of a
+    <strong>Digital & Social Media Marketing Academic Project</strong> to represent customer communication
+    and professional brand interaction.
+  </p>
+</div>
+
+<!-- CONTACT SECTION -->
+<div class="contact-section">
+  <div class="contact-box">
+
+    <!-- LEFT SIDE INFO -->
+    <div class="contact-info">
+      <h2>Contact Information</h2>
+
+      <p>
+        Phoenix Furniture is dedicated to delivering premium office furniture with comfort-focused
+        design and long-lasting quality. Our chairs are ideal for modern offices, corporate cabins,
+        co-working spaces, and home workstations.
+      </p>
+
+      <div class="info-item"><span>📍 Address:</span> Ahmedabad, Gujarat, India</div>
+      <div class="info-item"><span>📞 Phone:</span> +91 9XXXXXXXXX</div>
+      <div class="info-item"><span>📧 Email:</span> phoenixfurniture@email.com</div>
+      <div class="info-item"><span>🕒 Business Hours:</span> Monday - Saturday (10:00 AM - 7:00 PM)</div>
+    </div>
+
+    <!-- RIGHT SIDE FORM -->
+    <div class="contact-form">
+      <h2>Send Us a Message</h2>
+      <p>
+        Fill in the details below to send your inquiry.  
+        This form is included for academic and project demonstration purposes.
+      </p>
+
+      <form>
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="text" placeholder="Subject" required>
+        <textarea rows="5" placeholder="Write your message..." required></textarea>
+        <button type="submit">Submit Message</button>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+<div class="footer-grid">
+
+<div>
+<h4>About Phoenix</h4>
+<p style="font-size:14px;color:#ccc;line-height:1.9;">
+Phoenix Furniture is a premium office furniture brand focused on comfort, durability and modern design.
+This website is created as a Digital & Social Media Marketing academic project to demonstrate branding and online promotion strategies.
+</p>
+</div>
+
+<div>
+<h4>Quick Links</h4>
+<a href="index.html">Home</a>
+<a href="aboutus.html">About Us</a>
+<a href="blog1.html">Blog</a>
+<a href="mobilemarketing.html">Mobile Marketing</a>
+<a href="contactus.html">Contact</a>
+</div>
+
+<div>
+<h4>Contact</h4>
+<p style="font-size:14px;color:#ccc;line-height:1.9;">
+📍 Ahmedabad, India<br>
+📞 +91 9XXXXXXXXX<br>
+📧 phoenixfurniture@email.com
+</p>
+</div>
+
+<div>
+<h4>Follow Us</h4>
+<a href="#">Instagram</a>
+<a href="#">Facebook</a>
+<a href="#">WhatsApp</a>
+</div>
+
+</div>
+
+<div class="copy">
+© 2026 Phoenix Furniture. All Rights Reserved.<br>
+This website is created for educational and digital marketing demonstration purposes only.
+</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Phoenix Furniture | Checkout</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Cinzel:wght@600&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:Montserrat;
+  background:#fff;
+  color:#111;
+}
+
+header{
+  background:#000;
+  color:#fff;
+  padding:30px 20px;
+  text-align:center;
+  box-shadow:0 8px 18px rgba(0,0,0,0.25);
+}
+.brand{
+  font-family:'Cinzel', serif;
+  font-size:46px;
+  letter-spacing:6px;
+}
+
+section{
+  padding:60px 10%;
+  display:flex;
+  justify-content:center;
+}
+
+.checkout-box{
+  width:500px;
+  background:#fff;
+  padding:30px;
+  border-radius:18px;
+  box-shadow:0 12px 28px rgba(0,0,0,0.18);
+}
+
+.checkout-box h2{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.product-info{
+  background:#f6f6f6;
+  padding:15px;
+  border-radius:12px;
+  margin-bottom:20px;
+  font-size:14px;
+  line-height:1.7;
+}
+
+input, textarea{
+  width:95%;
+  padding:12px;
+  margin:10px 0;
+  border-radius:10px;
+  border:1px solid #ccc;
+  font-family:Montserrat;
+}
+
+textarea{
+  resize:none;
+  height:80px;
+}
+
+.btn-area{
+  text-align:center;
+  margin-top:20px;
+}
+
+.btn{
+  padding:12px 20px;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.place-btn{
+  background:#000;
+  color:#fff;
+  border:2px solid #000;
+}
+.place-btn:hover{
+  background:#fff;
+  color:#000;
+}
+
+.back-btn{
+  background:#fff;
+  border:2px solid #000;
+}
+.back-btn:hover{
+  background:#000;
+  color:#fff;
+}
+
+footer{
+  background:#000;
+  color:#fff;
+  text-align:center;
+  padding:30px;
+  margin-top:60px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">PHOENIX FURNITURE</div>
+  <p style="margin:8px 0;color:#ccc;">Checkout Page</p>
+</header>
+
+<section>
+<div class="checkout-box">
+
+  <h2>Buy Now</h2>
+
+  <div class="product-info" id="productDetails"></div>
+
+  <input type="text" id="custName" placeholder="Enter Your Name">
+  <input type="text" id="custPhone" placeholder="Enter Phone Number">
+  <textarea id="custAddress" placeholder="Enter Delivery Address"></textarea>
+
+  <div class="btn-area">
+    <button class="btn place-btn" onclick="placeOrder()">Place Order</button>
+    <button class="btn back-btn" onclick="goBack()">Back</button>
+  </div>
+
+</div>
+</section>
+
+<footer>
+  © 2026 Phoenix Furniture | Digital Marketing Project
+</footer>
+
+<script>
+let singleBuy = JSON.parse(localStorage.getItem("phoenixBuy"));
+let cartCheckout = JSON.parse(localStorage.getItem("phoenixCheckoutCart"));
+
+function showCheckout(){
+  const box = document.getElementById("productDetails");
+
+  if(singleBuy){
+    box.innerHTML = `
+      <b>Product:</b> ${singleBuy.name}<br>
+      <b>Price:</b> ₹${singleBuy.price}<br>
+      <b>Order Type:</b> Single Product
+    `;
+  }
+  else if(cartCheckout && cartCheckout.length>0){
+    let total=0;
+    let itemsHTML="<b>Products:</b><br><br>";
+
+    cartCheckout.forEach((item,i)=>{
+      total += item.price;
+      itemsHTML += (i+1) + ". " + item.name + " - ₹" + item.price + "<br>";
+    });
+
+    itemsHTML += "<br><b>Total:</b> ₹" + total;
+    itemsHTML += "<br><b>Order Type:</b> Cart Checkout";
+
+    box.innerHTML = itemsHTML;
+  }
+  else{
+    box.innerHTML="No product selected!";
+  }
+}
+
+function placeOrder(){
+  let name=document.getElementById("custName").value;
+  let phone=document.getElementById("custPhone").value;
+  let address=document.getElementById("custAddress").value;
+
+  if(name=="" || phone=="" || address==""){
+    alert("Please fill all details!");
+    return;
+  }
+
+  alert("✅ Order Placed Successfully!\n\nCustomer: " + name +
+        "\nPhone: " + phone +
+        "\nAddress: " + address +
+        "\n\nThank you for shopping with Phoenix Furniture!");
+
+  localStorage.removeItem("phoenixBuy");
+  localStorage.removeItem("phoenixCheckoutCart");
+  localStorage.removeItem("phoenixCart");
+
+  window.location.href="index.html";
+}
+
+function goBack(){
+  window.history.back();
+}
+
+showCheckout();
+</script>
+
+</body>
+</html>

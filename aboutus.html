@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About Us | Phoenix Furniture</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO -->
+<meta name="description" content="Phoenix Furniture is a premium revolving chair and office furniture brand. This website is developed as a Digital & Social Media Marketing Mini Project for academic purposes.">
+<meta name="keywords" content="Phoenix Furniture, revolving chair, office chair, boss chair, ergonomic chair, digital marketing project">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Cinzel:wght@600&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:Montserrat, sans-serif;
+  background:#f8f8f8;
+  color:#111;
+}
+
+/* HEADER (SAME AS INDEX) */
+header{
+  background:#0c0c0c;
+  color:#fff;
+  padding:32px 20px;
+  text-align:center;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+.brand{
+  font-family:'Cinzel', serif;
+  font-size:54px;
+  letter-spacing:7px;
+}
+nav{
+  margin-top:16px;
+}
+nav a{
+  color:#fff;
+  margin:0 18px;
+  text-decoration:none;
+  font-size:15px;
+  opacity:0.85;
+}
+nav a:hover{opacity:1}
+
+/* HERO */
+.hero{
+  height:70vh;
+  background:
+  linear-gradient(rgba(0,0,0,0.20), rgba(0,0,0,0.35)),
+  url("D:\\image.jpeg") center/cover no-repeat;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+  padding:20px;
+}
+.hero h1{
+  font-size:48px;
+  padding:26px 44px;
+  background:rgba(255,255,255,0.12);
+  border-radius:20px;
+}
+.hero p{
+  margin-top:18px;
+  font-size:16px;
+  background:rgba(0,0,0,0.6);
+  padding:12px 34px;
+  border-radius:30px;
+}
+
+/* ABOUT SECTION */
+section{
+  padding:80px 10%;
+  background:#fff;
+}
+
+.about-box{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  gap:45px;
+  align-items:flex-start;
+}
+
+.about-box img{
+  width:50%;
+  border-radius:18px;
+  box-shadow:0 14px 30px rgba(0,0,0,0.18);
+}
+
+.about-content{
+  width:50%;
+}
+
+.about-content h2{
+  margin-top:0;
+  font-size:30px;
+  letter-spacing:1px;
+}
+
+.about-content p{
+  line-height:1.9;
+  font-size:15px;
+  color:#333;
+  margin-top:15px;
+}
+
+/* SOCIAL MEDIA PROJECT CARD UNDER IMAGE */
+.social-card{
+  margin-top:22px;
+  background:#f8f8f8;
+  border:1px solid #e6e6e6;
+  border-radius:18px;
+  padding:28px 30px;
+  box-shadow:0 10px 22px rgba(0,0,0,0.10);
+}
+
+.social-card h3{
+  margin:0;
+  font-size:22px;
+  font-weight:700;
+  color:#111;
+}
+
+.social-card p{
+  margin-top:12px;
+  font-size:14px;
+  color:#333;
+  line-height:1.9;
+}
+
+.social-points{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:18px;
+}
+
+.social-points span{
+  background:#000;
+  color:#fff;
+  padding:10px 18px;
+  border-radius:30px;
+  font-size:13px;
+  font-weight:600;
+}
+
+/* WHY LIST */
+.about-content ul{
+  padding-left:18px;
+  margin-top:15px;
+}
+
+.about-content li{
+  margin-bottom:10px;
+  font-size:15px;
+  color:#222;
+}
+
+/* FOOTER (SAME AS INDEX) */
+footer{
+  background:#0c0c0c;
+  color:#fff;
+  padding:60px 10% 30px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:40px;
+}
+
+footer h4{
+  margin-bottom:14px;
+}
+
+footer a{
+  display:block;
+  color:#ccc;
+  text-decoration:none;
+  margin-bottom:8px;
+  font-size:14px;
+}
+
+footer a:hover{color:#fff}
+
+.copy{
+  text-align:center;
+  margin-top:35px;
+  font-size:13px;
+  color:#aaa;
+  line-height:1.6;
+}
+
+/* MOBILE */
+@media(max-width:800px){
+
+  .brand{
+    font-size:35px;
+  }
+
+  .hero{
+    height:60vh;
+  }
+
+  .hero h1{
+    font-size:28px;
+    padding:18px 22px;
+  }
+
+  .hero p{
+    font-size:14px;
+    padding:10px 18px;
+  }
+
+  .about-box{
+    flex-direction:column;
+  }
+
+  .about-box img,
+  .about-content{
+    width:100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">PHOENIX FURNITURE</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="aboutus.html">About</a>
+	<a href="mobilemarketing.html">Mobile Marketing</a>
+    <a href="blog1.html">Blog</a>
+    <a href="contactus.html">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>About Phoenix Furniture</h1>
+  <p>Premium Revolving Chairs & Modern Office Furniture</p>
+</div>
+
+<!-- ABOUT SECTION -->
+<section>
+  <div class="about-box">
+
+    <!-- IMAGE -->
+    <div style="width:50%;">
+      <img src="aboutusimage.jpeg"
+           alt="Modern office revolving chairs" style="width:100%;">
+
+      <!-- SOCIAL MEDIA PROJECT CARD -->
+      <div class="social-card">
+        <h3>Digital & Social Media Marketing Mini Project</h3>
+        <p>
+          This website is developed as a <strong>Digital & Social Media Marketing Mini Project</strong>
+          for academic and learning purpose. It demonstrates how a furniture brand can build its online presence
+          using <strong>SEO</strong>, <strong>Social Media Marketing</strong>, <strong>WhatsApp Marketing</strong>,
+          and <strong>Digital Advertisements</strong>.
+        </p>
+
+        <p>
+          The objective of this project is to showcase product categories, create professional branding,
+          and provide a modern user-friendly furniture website layout.
+        </p>
+
+        <div class="social-points">
+          <span>Instagram Marketing</span>
+          <span>Facebook Ads</span>
+          <span>WhatsApp Promotion</span>
+          <span>SEO Strategy</span>
+          <span>Digital Branding</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="about-content">
+      <h2>About Phoenix Furniture</h2>
+
+      <p>
+        <strong>Phoenix Furniture</strong> is a modern office furniture brand that specializes
+        in premium quality <strong>revolving chairs</strong> designed for comfort, productivity,
+        and professional workspaces.
+      </p>
+
+      <p>
+        Our product range includes <strong>Boss Chairs, Office Chairs, Ergonomic Chairs, Visitor Chairs</strong>
+        and <strong>Gaming Chairs</strong>. Each chair is designed to deliver durability, premium comfort,
+        and modern aesthetics for corporate and home office setups.
+      </p>
+
+      <h2 style="margin-top:25px;">Why Digital Marketing for Furniture?</h2>
+      <ul>
+        <li>Furniture products can be promoted through attractive visuals</li>
+        <li>Easy audience reach using Instagram and Facebook ads</li>
+        <li>Product discovery becomes easier with category-based pages</li>
+        <li>Digital marketing is cost-effective and measurable</li>
+        <li>Builds strong brand identity and customer engagement</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+<div class="footer-grid">
+
+<div>
+<h4>About Phoenix</h4>
+<p style="font-size:14px;color:#ccc;">
+Phoenix Furniture is a premium office furniture brand focused on comfort, design and productivity. 
+This website represents a digital marketing project showcasing online product presentation and branding strategy.
+</p>
+</div>
+
+<div>
+<h4>Quick Links</h4>
+<a href="index.html">Home</a>
+<a href="aboutus.html">About Us</a>
+<a href="blog1.html">Blog</a>
+<a href="mobilemarketing.html">Mobile Marketing</a>
+<a href="contactus.html">Contact</a>
+</div>
+
+<div>
+<h4>Contact</h4>
+<p style="font-size:14px;color:#ccc;">
+📍 Ahmedabad, India<br>
+📞 +91 9XXXXXXXXX<br>
+📧 phoenixfurniture@email.com
+</p>
+</div>
+
+<div>
+<h4>Follow Us</h4>
+<a href="#">Instagram</a>
+<a href="#">Facebook</a>
+<a href="#">WhatsApp</a>
+</div>
+
+</div>
+
+<div class="copy">
+© 2026 Phoenix Furniture. All Rights Reserved.<br>
+This website is created for educational and digital marketing demonstration purposes only.
+</div>
+</footer>
+
+</body>
+</html>

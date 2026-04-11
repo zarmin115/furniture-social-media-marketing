@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Phoenix Furniture | Cart</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Cinzel:wght@600&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:Montserrat;
+  background:#fff;
+  color:#111;
+}
+
+header{
+  background:#000;
+  color:#fff;
+  padding:30px 20px;
+  text-align:center;
+  box-shadow:0 8px 18px rgba(0,0,0,0.25);
+}
+.brand{
+  font-family:'Cinzel', serif;
+  font-size:46px;
+  letter-spacing:6px;
+}
+
+section{
+  padding:60px 10%;
+}
+
+h2{
+  text-align:center;
+  margin-bottom:40px;
+  font-size:32px;
+}
+
+.cart-item{
+  display:flex;
+  gap:20px;
+  align-items:center;
+  background:#fff;
+  box-shadow:0 10px 25px rgba(0,0,0,0.12);
+  border-radius:15px;
+  padding:15px;
+  margin-bottom:20px;
+}
+
+.cart-item img{
+  width:120px;
+  height:120px;
+  object-fit:contain;
+  background:#f6f6f6;
+  border-radius:12px;
+}
+
+.cart-details{
+  flex:1;
+}
+
+.cart-details h3{
+  margin:0;
+}
+
+.cart-details p{
+  margin:6px 0;
+  color:#444;
+  font-weight:600;
+}
+
+/* QUANTITY */
+.qty-box{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:8px;
+}
+
+.qty-btn{
+  border:none;
+  padding:8px 14px;
+  border-radius:50%;
+  font-size:16px;
+  cursor:pointer;
+  font-weight:700;
+  background:#000;
+  color:#fff;
+  transition:0.3s;
+}
+.qty-btn:hover{
+  background:#444;
+}
+
+.qty-number{
+  font-weight:700;
+  font-size:16px;
+}
+
+/* BUTTONS */
+.btn{
+  padding:10px 18px;
+  border:none;
+  border-radius:25px;
+  cursor:pointer;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.remove-btn{
+  background:#fff;
+  border:2px solid #000;
+}
+.remove-btn:hover{
+  background:#000;
+  color:#fff;
+}
+
+.buy-btn{
+  background:#000;
+  color:#fff;
+  border:2px solid #000;
+}
+.buy-btn:hover{
+  background:#fff;
+  color:#000;
+}
+
+.total-box{
+  margin-top:40px;
+  text-align:center;
+  font-size:18px;
+  font-weight:700;
+}
+
+footer{
+  background:#000;
+  color:#fff;
+  text-align:center;
+  padding:30px;
+  margin-top:60px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">PHOENIX FURNITURE</div>
+  <p style="margin:8px 0;color:#ccc;">Your Shopping Cart</p>
+</header>
+
+<section>
+<h2>Cart Items</h2>
+
+<div id="cartList"></div>
+
+<div class="total-box" id="totalPrice"></div>
+
+<div style="text-align:center;margin-top:25px;">
+  <button class="btn buy-btn" onclick="checkoutCart()">Checkout</button>
+  <button class="btn remove-btn" onclick="clearCart()">Clear Cart</button>
+  <button class="btn remove-btn" onclick="window.location.href='index.html'">Back to Home</button>
+</div>
+
+</section>
+
+<footer>
+  © 2026 Phoenix Furniture | Digital Marketing Project
+</footer>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("phoenixCart")) || [];
+
+/* Convert old cart format to new format with quantity */
+cart = cart.map(item => {
+  if(!item.qty){
+    item.qty = 1;
+  }
+  return item;
+});
+
+function saveCart(){
+  localStorage.setItem("phoenixCart", JSON.stringify(cart));
+}
+
+function showCart(){
+  const cartList = document.getElementById("cartList");
+  const totalBox = document.getElementById("totalPrice");
+
+  cartList.innerHTML="";
+  let total=0;
+
+  if(cart.length===0){
+    cartList.innerHTML="<h3 style='text-align:center;color:#555;'>Cart is Empty 😔</h3>";
+    totalBox.innerHTML="";
+    return;
+  }
+
+  cart.forEach((item,index)=>{
+    total += item.price * item.qty;
+
+    cartList.innerHTML += `
+      <div class="cart-item">
+        <img src="${item.img}">
+        <div class="cart-details">
+          <h3>${item.name}</h3>
+          <p>Price: ₹${item.price}</p>
+
+          <div class="qty-box">
+            <button class="qty-btn" onclick="decreaseQty(${index})">-</button>
+            <span class="qty-number">${item.qty}</span>
+            <button class="qty-btn" onclick="increaseQty(${index})">+</button>
+          </div>
+
+          <p style="margin-top:10px;">Subtotal: ₹${item.price * item.qty}</p>
+        </div>
+
+        <button class="btn remove-btn" onclick="removeItem(${index})">Remove</button>
+      </div>
+    `;
+  });
+
+  totalBox.innerHTML="Total Price: ₹" + total;
+}
+
+function increaseQty(index){
+  cart[index].qty++;
+  saveCart();
+  showCart();
+}
+
+function decreaseQty(index){
+  if(cart[index].qty > 1){
+    cart[index].qty--;
+  } else {
+    cart.splice(index,1);
+  }
+  saveCart();
+  showCart();
+}
+
+function removeItem(index){
+  cart.splice(index,1);
+  saveCart();
+  showCart();
+}
+
+function clearCart(){
+  if(confirm("Are you sure you want to clear cart?")){
+    cart=[];
+    saveCart();
+    showCart();
+  }
+}
+
+function checkoutCart(){
+  if(cart.length===0){
+    alert("Cart is empty!");
+    return;
+  }
+
+  localStorage.setItem("phoenixCheckoutCart", JSON.stringify(cart));
+  window.location.href="buy.html";
+}
+
+showCart();
+</script>
+
+</body>
+</html>
