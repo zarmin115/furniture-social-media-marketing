@@ -1,0 +1,497 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Phoenix Furniture | Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Cinzel:wght@600&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:Montserrat;
+  background:#fff;
+  color:#111;
+}
+
+/* HEADER */
+header{
+  background:#000;
+  color:#fff;
+  padding:35px 20px;
+  text-align:center;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 8px 18px rgba(0,0,0,0.25);
+}
+.brand{
+  font-family:'Cinzel', serif;
+  font-size:56px;
+  letter-spacing:8px;
+}
+nav{
+  margin-top:18px;
+}
+nav a{
+  color:#fff;
+  margin:0 18px;
+  text-decoration:none;
+  font-size:15px;
+  opacity:0.85;
+  transition:0.3s;
+}
+nav a:hover{
+  opacity:1;
+  border-bottom:2px solid #fff;
+  padding-bottom:4px;
+}
+
+/* CART BUTTON */
+.cart-box{
+  position:absolute;
+  right:25px;
+  top:35px;
+  background:#fff;
+  color:#000;
+  padding:10px 18px;
+  border-radius:30px;
+  font-size:14px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+.cart-box:hover{
+  background:#ddd;
+}
+.cart-count{
+  background:#000;
+  color:#fff;
+  padding:3px 8px;
+  border-radius:50%;
+  margin-left:8px;
+  font-size:12px;
+}
+
+/* SECTION */
+section{
+  padding:70px 10%;
+}
+h2{
+  text-align:center;
+  font-size:34px;
+  margin-bottom:40px;
+}
+
+/* CATEGORIES */
+.categories{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  flex-wrap:wrap;
+}
+.category{
+  font-size:15px;
+  font-weight:600;
+  padding:14px 30px;
+  border:2px solid #000;
+  border-radius:40px;
+  cursor:pointer;
+  transition:0.3s;
+}
+.category:hover{
+  background:#000;
+  color:#fff;
+}
+.category.active{
+  background:#000;
+  color:#fff;
+}
+
+/* PRODUCTS */
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+  margin-top:55px;
+}
+.card{
+  background:#fff;
+  box-shadow:0 12px 28px rgba(0,0,0,0.15);
+  border-radius:18px;
+  overflow:hidden;
+  transition:0.35s;
+  padding-bottom:18px;
+}
+.card:hover{
+  transform:translateY(-8px);
+}
+.card img{
+  width:100%;
+  height:260px;
+  object-fit:contain;
+  background:#f6f6f6;
+}
+.card h3{
+  text-align:center;
+  margin:14px 0 0;
+}
+.price{
+  text-align:center;
+  font-weight:700;
+  margin:6px 0;
+}
+.card p{
+  padding:0 18px 10px;
+  font-size:14px;
+  color:#444;
+  text-align:center;
+}
+
+/* BUTTONS */
+.btn-area{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin-top:10px;
+  flex-wrap:wrap;
+}
+.btn{
+  border:none;
+  padding:12px 18px;
+  border-radius:30px;
+  font-size:13px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+.cart-btn{
+  background:#fff;
+  border:2px solid #000;
+}
+.cart-btn:hover{
+  background:#000;
+  color:#fff;
+}
+.buy-btn{
+  background:#000;
+  color:#fff;
+  border:2px solid #000;
+}
+.buy-btn:hover{
+  background:#fff;
+  color:#000;
+}
+.blog-btn{
+  background:#f2f2f2;
+  border:2px solid #000;
+}
+.blog-btn:hover{
+  background:#000;
+  color:#fff;
+}
+
+/* CHATBOT */
+.chatbot-btn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#000;
+  color:#fff;
+  padding:14px 18px;
+  border-radius:50px;
+  cursor:pointer;
+  z-index:999;
+}
+.chatbot{
+  position:fixed;
+  bottom:80px;
+  right:20px;
+  width:320px;
+  max-height:420px;
+  background:#fff;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+  border-radius:15px;
+  display:none;
+  flex-direction:column;
+  overflow:hidden;
+}
+.chat-header{
+  background:#000;
+  color:#fff;
+  padding:10px;
+  text-align:center;
+}
+.chat-body{
+  padding:10px;
+  overflow-y:auto;
+  font-size:14px;
+}
+.chat-input{
+  display:flex;
+}
+.chat-input input{
+  flex:1;
+  padding:10px;
+  border:none;
+  border-top:1px solid #ddd;
+}
+.chat-input button{
+  padding:10px;
+  background:#000;
+  color:#fff;
+  border:none;
+}
+
+/* FOOTER */
+footer{
+  background:#000;
+  color:#fff;
+  padding:60px 10% 30px;
+  margin-top:60px;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:40px;
+}
+footer h4{
+  margin-bottom:14px;
+  font-size:16px;
+  letter-spacing:1px;
+}
+footer p{
+  font-size:14px;
+  color:#ccc;
+  line-height:1.8;
+}
+footer a{
+  display:block;
+  color:#ccc;
+  text-decoration:none;
+  margin-bottom:8px;
+  font-size:14px;
+  transition:0.3s;
+}
+footer a:hover{
+  color:#fff;
+}
+.copy{
+  text-align:center;
+  margin-top:35px;
+  font-size:13px;
+  color:#aaa;
+  line-height:1.6;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .brand{font-size:34px;letter-spacing:4px;}
+  .cart-box{position:static;margin:15px auto 0;display:inline-block;}
+  .chatbot{width:90%;right:5%;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">PHOENIX FURNITURE</div>
+
+  <div class="cart-box" onclick="window.location.href='cart.html'">
+    🛒 Cart <span class="cart-count" id="cartCount">0</span>
+  </div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="#products">Categories</a>
+    <a href="aboutus.html">About</a>
+    <a href="blog1.html">Blog</a>
+    <a href="marketing.html">Marketing</a>
+    <a href="contactus.html">Contact</a>
+  </nav>
+</header>
+
+<section id="products">
+<h2>Chair Categories</h2>
+
+<div class="categories">
+  <div class="category active" onclick="filterChairs('boss', this)">Boss Chair</div>
+  <div class="category" onclick="filterChairs('office', this)">Office Chair</div>
+  <div class="category" onclick="filterChairs('ergonomic', this)">Ergonomic Chair</div>
+  <div class="category" onclick="filterChairs('visitor', this)">Visitor Chair</div>
+  <div class="category" onclick="filterChairs('gaming', this)">Gaming Chair</div>
+</div>
+
+<div class="products" id="productList"></div>
+</section>
+
+<!-- CHATBOT UI -->
+<div class="chatbot-btn" onclick="toggleChat()">Chat</div>
+
+<div class="chatbot" id="chatbot">
+  <div class="chat-header">Phoenix Assistant</div>
+  <div class="chat-body" id="chatBody">
+    <p><b>Bot:</b> Hi! Ask about price, delivery, chairs, offers, contact, payment.</p>
+  </div>
+  <div class="chat-input">
+    <input type="text" id="userInput" placeholder="Ask something...">
+    <button onclick="sendMsg()">Send</button>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+
+    <div>
+      <h4>Phoenix Furniture</h4>
+      <p>
+        Premium chairs for comfort & productivity. Designed for modern offices and homes.
+      </p>
+    </div>
+
+    <div>
+      <h4>Quick Links</h4>
+      <a href="index.html">Home</a>
+      <a href="#products">Categories</a>
+      <a href="contactus.html">Contact</a>
+    </div>
+
+    <div>
+      <h4>Contact</h4>
+      <p>
+        📍 Ahmedabad <br>
+        📞 +91 9XXXXXXXXX
+      </p>
+    </div>
+
+  </div>
+
+  <div class="copy">
+    © 2026 Phoenix Furniture
+  </div>
+</footer>
+
+<script>
+const chairs={
+  boss:[
+    {img:"bosschair1.jpeg",name:"Luxury Boss Chair",price:18999,desc:"Premium executive boss chair with elegant design, revolving base and maximum comfort.",blog:"blog.html#boss"},
+    {img:"bosschair2.jpeg",name:"Executive Chair",price:22499,desc:"High-back boss chair ideal for office cabins with ergonomic support.",blog:"blog.html#boss"}
+  ],
+  office:[
+    {img:"officechair1.jpeg",name:"Office Chair",price:7999,desc:"Comfortable office revolving chair suitable for daily work and professional setups.",blog:"blog.html#office"},
+    {img:"officechair2.jpeg",name:"Office Chair Pro",price:8999,desc:"Modern office chair with smooth wheels and adjustable height for professional workspaces.",blog:"blog.html#office"}
+ ],
+  ergonomic:[
+    {img:"ergonomic1.jpeg",name:"Ergonomic Chair",price:9499,desc:"Designed to support posture and reduce back strain for long working hours.",blog:"blog.html#ergonomic"},
+    {img:"ergonomic2.jpeg",name:"Ergonomic Chair Plus",price:10999,desc:"Ergonomic chair with breathable mesh back and lumbar support for productivity.",blog:"blog.html#ergonomic"}
+ ],
+  visitor:[
+    {img:"visitor1.jpeg",name:"Visitor Chair",price:4999,desc:"Modern visitor chair for reception and office waiting areas.",blog:"blog.html#visitor"},
+    {img:"visitor2.jpeg",name:"Visitor Chair Classic",price:5499,desc:"Comfortable visitor chair suitable for meeting rooms and office reception.",blog:"blog.html#visitor"}
+  ],
+  gaming:[
+    {img:"gaming1.jpeg",name:"Gaming Chair",price:14999,desc:"Stylish gaming chair with full back and neck support for long sessions.",blog:"blog.html#gaming"},
+    {img:"gaming2.jpeg",name:"Gaming Chair Pro",price:16999,desc:"Premium gaming chair with adjustable armrest and strong cushion support.",blog:"blog.html#gaming"}
+  ]
+};
+
+let cart = JSON.parse(localStorage.getItem("phoenixCart")) || [];
+
+function updateCartCount(){
+  let totalQty = 0;
+  cart.forEach(item => totalQty += item.qty);
+  document.getElementById("cartCount").innerText = totalQty;
+}
+
+function addToCart(name, price, img){
+  let found = cart.find(item => item.name === name);
+  if(found){found.qty += 1;} 
+  else {cart.push({name, price, img, qty: 1});}
+  localStorage.setItem("phoenixCart", JSON.stringify(cart));
+  updateCartCount();
+  alert("✅ Added to cart: " + name);
+}
+
+function buyNow(name, price){
+  localStorage.setItem("phoenixBuy", JSON.stringify({name, price}));
+  window.location.href="buy.html";
+}
+
+function readMore(blogLink){
+  window.location.href = blogLink;
+}
+
+function filterChairs(type, element, isDefault=false){
+  const list=document.getElementById("productList");
+  list.innerHTML="";
+  document.querySelectorAll(".category").forEach(c=>c.classList.remove("active"));
+  element.classList.add("active");
+
+  chairs[type].forEach(c=>{
+    list.innerHTML+=`
+      <div class="card">
+        <img src="${c.img}" alt="${c.name}">
+        <h3>${c.name}</h3>
+        <div class="price">₹${c.price}</div>
+        <p>${c.desc}</p>
+        <div class="btn-area">
+          <button class="btn cart-btn" onclick="addToCart('${c.name}',${c.price},'${c.img}')">Add to Cart</button>
+          <button class="btn buy-btn" onclick="buyNow('${c.name}',${c.price})">Buy Now</button>
+          <button class="btn blog-btn" onclick="readMore('${c.blog}')">Read More</button>
+        </div>
+      </div>
+    `;
+  });
+
+  if(!isDefault){
+    list.scrollIntoView({ behavior:"smooth", block:"start" });
+  }
+}
+
+// Default load without auto scroll
+filterChairs('boss', document.querySelector(".category.active"), true);
+updateCartCount();
+
+/* CHATBOT LOGIC */
+function toggleChat(){
+  let chat = document.getElementById("chatbot");
+  chat.style.display = chat.style.display === "flex" ? "none" : "flex";
+}
+
+function sendMsg(){
+  let input = document.getElementById("userInput");
+  let msg = input.value.toLowerCase();
+  let chatBody = document.getElementById("chatBody");
+
+  chatBody.innerHTML += `<p><b>You:</b> ${msg}</p>`;
+
+  let reply = "Sorry, I didn't understand. Try asking about price, chairs, delivery, contact, offers.";
+
+  if(msg.includes("hi") || msg.includes("hello") || msg.includes("hey")) reply = "Hi! How can I help you today?";
+  else if(msg.includes("price") || msg.includes("cost")) reply = "Our chairs range from ₹4999 to ₹22000.";
+  else if(msg.includes("cheap") || msg.includes("lowest")) reply = "Visitor chairs start from ₹4999.";
+  else if(msg.includes("delivery") || msg.includes("shipping")) reply = "Delivery in 3-5 days.";
+  else if(msg.includes("contact") || msg.includes("number")) reply = "Call us at +91 9XXXXXXXXX.";
+  else if(msg.includes("offer") || msg.includes("discount")) reply = "We offer discounts on bulk orders and special deals.";
+  else if(msg.includes("location") || msg.includes("where")) reply = "We are based in Ahmedabad.";
+  else if(msg.includes("chair") || msg.includes("products")) reply = "We offer Boss, Office, Ergonomic, Visitor & Gaming chairs.";
+  else if(msg.includes("best")) reply = "Ergonomic chairs are best for long working hours.";
+  else if(msg.includes("gaming")) reply = "Gaming chairs provide neck & back support for long sessions.";
+  else if(msg.includes("office")) reply = "Office chairs are perfect for daily work and comfort.";
+  else if(msg.includes("payment") || msg.includes("pay")) reply = "We accept UPI, Cards & Cash.";
+  else if(msg.includes("return") || msg.includes("replace")) reply = "Replacement available for damaged products.";
+  else if(msg.includes("time") || msg.includes("hours")) reply = "We are available 10 AM to 8 PM.";
+
+  chatBody.innerHTML += `<p><b>Bot:</b> ${reply}</p>`;
+  chatBody.scrollTop = chatBody.scrollHeight;
+  input.value = "";
+}
+
+</script>
+
+</body>
+</html>
